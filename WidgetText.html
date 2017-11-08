@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Change text</title>
+
+  <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/1.81.0/js/Wix.js"></script>
+  
+ </head> 
+  <body style='border:3px solid blue; background-color: white;'>
+  
+  <p id='changed'>Click the button and I will be changed</p>
+  <button onclick="changeText()">Click me</button>
+  
+  <script> 
+   function changeText(){
+    document.getElementById('changed').innerHTML = 'Ololo';
+   }
+   
+  </script>
+  </body>
+  
+</html>
