@@ -11,23 +11,14 @@ function getAppManifest() {
                                     mainAction2:{ actionId: 'MANAGE', label: 'Manage This Btn' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
-                                        design: 'HIDE',
-//design: {actionId: 'DESIGN_PANEL'},
-//crop: {actionId: 'CROP_PANEL'},
+                                        design: 'HIDE'
                                     },
                                     helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
                                 },
                                 mobile: {
                                     mainAction1:{ actionId: 'MANAGE', label: 'Manage This Mobile' },
                                     iconButtons: {
-                                        textSize: 'HIDE',
-//layout: 'HIDE',
-//design: 'HIDE',
-//animation:{actionId: 'ANIMATION_MOBILE'},
-//settings: 'HIDE',
-//crop: {actionId: 'CROP_PANEL_MOBILE'},
-
-
+                                        textSize: 'HIDE'
                                     },
                                     helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
                                 }
@@ -37,18 +28,14 @@ function getAppManifest() {
                     visibility: 'DEV'
                 }
             }
-        },
+        }
     };
 }
-
 var _port;
 var _editorSDK;
-
 function editorReady(editorSDK) {
     _editorSDK = editorSDK;
 }
-
-
 function onEvent(event) {
     const componentRef = event.eventPayload.componentRef;
     const eventId = event.eventPayload.id;
@@ -83,7 +70,6 @@ function onEvent(event) {
             break;
     }
 }
-
 module.exports = {
     onEvent: onEvent,
     editorReady: editorReady,
