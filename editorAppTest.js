@@ -7,11 +7,11 @@ function getAppManifest() {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'Edit this button' },
+                                    mainAction1:{ actionId: 'EDIT', label: 'Edit MY button' },
                                     mainAction2:{ actionId: 'MANAGE', label: 'Manage This Btn' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
-                                        design: 'HIDE'
+                                        design: {actionId: 'DESIGN_PANEL'},
                                     },
                                     helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
                                 },
