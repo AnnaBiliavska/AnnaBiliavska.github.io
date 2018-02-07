@@ -6,7 +6,7 @@ function getAppManifest() {
                     connections: {
                         buttonrole: {
                             behavior: {
-                                rotatable:'false',
+                                rotatable: false,
                             },
                             gfpp: {
                                 desktop: {
