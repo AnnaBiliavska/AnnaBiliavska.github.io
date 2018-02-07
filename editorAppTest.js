@@ -24,7 +24,7 @@ function getAppManifest() {
                                 }
                             },
                             behavior: {
-                                "rotatable": false,
+                                rotatable: 'false',
                             },
                         }
                     },
