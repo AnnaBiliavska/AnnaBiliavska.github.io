@@ -5,9 +5,9 @@ function getAppManifest() {
                 default: {
                     connections: {
                         buttonrole: {
-                            /*behavior: {
+                            behavior: {
                                 rotatable:'false',
-                            },*/
+                            },
                             gfpp: {
                                 desktop: {
                                     mainAction1:{ actionId: 'EDIT', label: 'Edit MY button' },
