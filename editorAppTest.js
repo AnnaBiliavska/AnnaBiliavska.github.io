@@ -5,9 +5,6 @@ function getAppManifest() {
                 default: {
                     connections: {
                         buttonrole: {
-                            behavior: {
-                                rotatable: false,
-                            },
                             gfpp: {
                                 desktop: {
                                     mainAction1:{ actionId: 'EDIT', label: 'Edit MY button' },
@@ -25,7 +22,10 @@ function getAppManifest() {
                                     },
                                     helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
                                 }
-                            }
+                            },
+                            behavior: {
+                                "rotatable": "false",
+                            },
                         }
                     },
                     visibility: 'DEV'
