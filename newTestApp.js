@@ -35,7 +35,7 @@ function editorReady(editorSDK) {
             componentType: "platform.components.AppController",
             data: {
                 type: "AppController",
-                applicationId: "1510b05d-d910-c6b4-b985-b7b05be0848e",
+                applicationId: "151294ae-dbdf-1943-4d8c-d6bdadf56ec2",
                 name: "controllerWithExportsAsObject",
                 controllerType: "controllerWithExportsAsObject"
             }
