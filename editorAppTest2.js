@@ -7,7 +7,7 @@ function getAppManifest() {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'Test the best' },
+                                    mainAction1:{ actionId: 'EDIT', label: 'Second app' },
                                     mainAction2:{ actionId: 'MANAGE', label: 'Push me' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},

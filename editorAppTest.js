@@ -7,7 +7,7 @@ function getAppManifest() {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'Edit me' },
+                                    mainAction1:{ actionId: 'EDIT', label: 'First app' },
                                     mainAction2:{ actionId: 'MANAGE', label: 'Manage This Btn' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
@@ -24,7 +24,8 @@ function getAppManifest() {
                                 }
                             },
                             behavior: {
-                                rotatable: false
+                                rotatable: false,
+                                toggleShowOnAllPagesEnabled: false,
                             },
                         }
                     },
@@ -38,6 +39,7 @@ var _port;
 var _editorSDK;
 function editorReady(editorSDK) {
     _editorSDK = editorSDK;
+
 }
 function onEvent(event) {
     const componentRef = event.eventPayload.componentRef;
