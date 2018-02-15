@@ -48,7 +48,7 @@ function getAppManifest() {
                             behavior: {
                                 toggleShowOnAllPagesEnabled: false,
                                 pinnable: false,
-                                resizable: false,
+                                resizable: false
                             },
                         }
                     },
