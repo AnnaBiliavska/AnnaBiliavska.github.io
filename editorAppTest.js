@@ -7,7 +7,7 @@ function getAppManifest() {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'First app' },
+                                    mainAction1:{ actionId: 'EDIT', label: 'aaaa' },
                                     mainAction2:{ actionId: 'MANAGE', label: 'Manage This Btn' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
@@ -24,8 +24,31 @@ function getAppManifest() {
                                 }
                             },
                             behavior: {
-                                rotatable: false,
+                                /*rotatable: false,
+                                duplicatable: false,
+                                toggleShowOnAllPagesEnabled: false,*/
+                               // pinnable: false,
+                                //resizable: true,
+                            },
+                        },
+                        imagerole: {
+                            gfpp: {
+                                desktop: {
+                                    mainAction1:{ actionId: 'EDIT', label: 'image' },
+                                    helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
+                                },
+                                mobile: {
+                                    mainAction1:{ actionId: 'MANAGE', label: 'Manage This Mobile' },
+                                    iconButtons: {
+                                        textSize: 'HIDE'
+                                    },
+                                    helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
+                                }
+                            },
+                            behavior: {
                                 toggleShowOnAllPagesEnabled: false,
+                                pinnable: false,
+                                resizable: true,
                             },
                         }
                     },

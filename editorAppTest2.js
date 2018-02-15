@@ -8,7 +8,7 @@ function getAppManifest() {
                             gfpp: {
                                 desktop: {
                                     mainAction1:{ actionId: 'EDIT', label: 'Second app' },
-                                    mainAction2:{ actionId: 'MANAGE', label: 'Push me' },
+                                    mainAction2:{ actionId: 'MANAGE', label: 'Click click' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
                                     },
@@ -23,7 +23,8 @@ function getAppManifest() {
                                 }
                             },
                             behavior: {
-                                rotatable: false
+                                pinnable: false,
+                                resizable: false,
                             },
                         }
                     },
