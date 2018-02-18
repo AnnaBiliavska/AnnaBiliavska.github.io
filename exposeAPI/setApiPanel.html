@@ -3,18 +3,6 @@
 <span>Changing The button label...</span>
 <script src="https://static.parastorage.com/services/js-platform-editor-sdk/1.115.0/lib/editorSDK.min.js"></script>
 <script>
-    const panelSuccessButton = {
-        "type": "DESKTOP",
-        "id": "comp-jcueey6e"
-    };
-    editorSDK
-        .panel.onEvent(async event => {
-        switch (event.eventType) {
-            case 'startConfiguration':
-                const appAPI = await editorSDK.editor.getAppAPI();
-                await appAPI.updateButtonLabel(panelSuccessButton, 'Changed');
-                break;
-        }
-    });
+
 </script>
 </body>

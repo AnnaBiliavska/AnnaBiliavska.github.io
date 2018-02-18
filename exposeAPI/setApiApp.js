@@ -13,14 +13,6 @@ async function updateButtonLabel(buttonRef, label) {
 module.exports = {
     onEvent: () => {},
     getAppManifest: () => ({}),
-    editorReady: async function editorReady(_editorSDK, appDefinitionId) {
-        const loadedButton = {
-            'type': 'DESKTOP',
-            'id': 'comp-jcueepln'
-        }
-        editorSDK = _editorSDK;
-        await editorSDK.editor.setAppAPI(appDefinitionId, {updateButtonLabel});
-        return await updateButtonLabel(loadedButton, 'Loaded');
-    },
-    exports: {updateButtonLabel}
+    editorReady:  () => {},
+
 };
