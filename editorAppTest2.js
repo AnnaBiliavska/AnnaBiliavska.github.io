@@ -24,7 +24,6 @@ function getAppManifest() {
                             },
                             behavior: {
                                 pinnable: false,
-                                resizable: false,
                             },
                         }
                     },
