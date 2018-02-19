@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<body>
+<span>Get API app</span>
+<script type="text/javascript" src="https://static.parastorage.com/services/js-platform-editor-sdk/1.115.0/lib/editorSDK.min.js"></script>
+<script>
+    editorSDK
+        .panel.onEvent(async event => {
+        switch (event.eventType) {
+            case 'startConfiguration':
+                const appAPI = await editorSDK.document.application.getPublicAPI('token', {appDefinitionId: '151294ae-dbdf-1943-4d8c-d6bdadf56ec2'});
+                await appAPI.sendLog();
+                break;
+        }
+    });
+</script>
+</body>
