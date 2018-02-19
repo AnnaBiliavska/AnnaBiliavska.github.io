@@ -7,7 +7,7 @@
         switch (event.eventType) {
             case 'startConfiguration':
                 const appAPI = await editorSDK.editor.getAppAPI();
-                await appAPI.sendLog();
+                await appAPI.sendLog("API is set");
                 break;
         }
     });

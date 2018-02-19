@@ -2,8 +2,8 @@
 
 let editorSDK;
 
-async function sendLog() {
-    return await console.log("Test best");
+async function sendLog(text) {
+    return await console.log(text);
 }
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     editorReady: async function editorReady(_editorSDK, appDefinitionId) {
         editorSDK = _editorSDK;
         await editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
-        return await sendLog();
+        return await sendLog("Set API");
     },
     exports: {sendLog}
 };
