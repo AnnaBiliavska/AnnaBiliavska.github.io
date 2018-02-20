@@ -11,8 +11,8 @@ module.exports = {
     getAppManifest: () => ({}),
     editorReady: async function editorReady(_editorSDK, appDefinitionId) {
         editorSDK = _editorSDK;
-        await (function(){editorSDK.editor.setAppAPI(appDefinitionId, {sendLog})}());
-        return await (function(){sendLog("Set API")}());
+        await editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
+        return await sendLog("Set API");
     },
     exports: {sendLog}
 };
