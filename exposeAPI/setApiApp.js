@@ -6,7 +6,8 @@ async function sendLog(text) {
     return await console.log(text);
 }
 
-module.exports = {
+(function() {
+ module.exports = {
     onEvent: () => {},
     getAppManifest: () => ({}),
     editorReady: async function editorReady(_editorSDK, appDefinitionId) {
@@ -15,4 +16,5 @@ module.exports = {
         return await sendLog("Set API");
     },
     exports: {sendLog}
-};
+ };
+}());
