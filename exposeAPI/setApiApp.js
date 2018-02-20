@@ -1,6 +1,4 @@
 'use strict';
-(function(){
-let editorSDK;
 
 async function sendLog(text) {
     return await console.log(text);
@@ -9,11 +7,9 @@ async function sendLog(text) {
  module.exports = {
     onEvent: () => {},
     getAppManifest: () => ({}),
-    editorReady: async function editorReady(_editorSDK, appDefinitionId) {
-        editorSDK = _editorSDK;
+    editorReady: async function editorReady(editorSDK, appDefinitionId) {
         await editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
-        return await sendLog("Set APIzzz");
+        return await sendLog("Set API");
     },
     exports: {sendLog}
  };
-}());
