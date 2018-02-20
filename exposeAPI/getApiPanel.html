@@ -8,7 +8,7 @@
         switch (event.eventType) {
             case 'startConfiguration':
                 const appAPI = await editorSDK.document.application.getPublicAPI('token', {appDefinitionId: '151294ae-dbdf-1943-4d8c-d6bdadf56ec2'});
-                await appAPI.sendLog("Got it");
+                await appAPI.sendLog("Got it from panel");
                 break;
         }
     });
