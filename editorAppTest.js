@@ -7,8 +7,8 @@ function getAppManifest() {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'aaaa' },
-                                    mainAction2:{ actionId: 'MANAGE', label: 'Manage This Btn' },
+                                    mainAction1:{ actionId: 'EDIT', label: 'This is' },
+                                    mainAction2:{ actionId: 'MANAGE', label: 'TEST' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
                                         design: {actionId: 'DESIGN_PANEL'},
@@ -24,11 +24,11 @@ function getAppManifest() {
                                 }
                             },
                             behavior: {
-                                /*rotatable: false,
+                                rotatable: false,
                                 duplicatable: false,
-                                toggleShowOnAllPagesEnabled: false,*/
-                               // pinnable: false,
-                                //resizable: true,
+                                toggleShowOnAllPagesEnabled: false,
+                                pinnable: false,
+                                resizable: false,
                             },
                         },
                         imagerole: {
@@ -48,7 +48,7 @@ function getAppManifest() {
                             behavior: {
                                 toggleShowOnAllPagesEnabled: false,
                                 pinnable: false,
-                                resizable: false
+                                resizable: true,
                             },
                         }
                     },
