@@ -1,6 +1,5 @@
 'use strict';
 
-(function() {
     let editorSDK;
 
     async function sendLog(text) {
@@ -19,5 +18,5 @@
         },
         exports: {sendLog}
     };
-}());
+
 
