@@ -13,7 +13,7 @@
         getAppManifest: () => ({}),
         editorReady: async function editorReady(editorSDK, appDefinitionId) {
             editorSDK = _editorSDK;
-            await editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
+            await _editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
             return await sendLog("Set API");
         },
         exports: {sendLog}
