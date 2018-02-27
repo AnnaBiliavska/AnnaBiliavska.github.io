@@ -1,7 +1,7 @@
 'use strict';
 
 (function() {
-    let editorSDK;
+    let sdk;
     var self=this;
 
     async function sendLog(text) {
@@ -13,8 +13,9 @@
         },
         getAppManifest: () => ({}),
         editorReady: async function editorReady(_editorSDK, appDefinitionId) {
-            self.editorSDK = _editorSDK;
-            await _editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
+            sdk = _editorSDK;
+            self.sdk = sdk;
+            await sdk.editor.setAppAPI(appDefinitionId, {sendLog});
             return await sendLog("Set API");
         },
         exports: {sendLog}
