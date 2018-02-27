@@ -14,7 +14,6 @@
             editorSDK = _editorSDK;
             await editorSDK.editor.setAppAPI(appDefinitionId, {sendLog});
             return await sendLog("Set API");
-            return await sendLog("Set APIzzz");
         },
         exports: {sendLog}
     };
