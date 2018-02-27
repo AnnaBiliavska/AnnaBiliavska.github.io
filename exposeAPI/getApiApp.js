@@ -1,5 +1,5 @@
 'use strict';
-
+(function() {
 
     module.exports = {
         editorReady: async function (editorSDK, appDefinitionId) {
@@ -9,5 +9,5 @@
         getAppManifest: () => ({}),
         onEvent: () => {}
     };
-
+}());
 
