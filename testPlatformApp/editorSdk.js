@@ -1,10 +1,13 @@
 'use strict';
 module.exports = function () {
     let app;
+    let editorSDK;
 
     async function editorReady(_editorSDK, _appDefinitionId, options) {
         console.log(_editorSDK);
         const pageRef = await _editorSDK.pages.getCurrent();
+        self.sdk = _editorSDK;
+        self.sdk.info.getUserId().then((userId)=>console.log(userId));
 
         app = new App(_editorSDK, _appDefinitionId, pageRef);
 
@@ -30,7 +33,7 @@ module.exports = function () {
                             buttonrole: {
                                 gfpp: {
                                     desktop: {
-                                        mainAction1:{ actionId: 'EDIT', label: 'This is' },
+                                        mainAction1:{ actionId: 'EDIT', label: 'This IS ttt' },
                                         mainAction2:{ actionId: 'MANAGE', label: 'TEST' },
                                     },
                                     mobile: {
@@ -61,7 +64,7 @@ module.exports = function () {
             this.eventHandlers = {
                 "controllerAdded": this.onControllerAdded,
                 "controllerSettingsButtonClicked": this.onControllerSettingsButtonClicked,
-                "printUserId": this.printUserId,
+                "printUser": this.printUserId,
             }
         }
 
@@ -97,7 +100,7 @@ module.exports = function () {
         async install() {
             await this.addController();
             const buttonRef = await this.addConnectedComponent('wysiwyg.viewer.components.SiteButton', 'buttonrole');
-            await this.editorSDK.components.data.update(null, {componentRef: buttonRef, data: {label: 'Get User Id'}});
+            await this.editorSDK.components.data.update(null, {componentRef: buttonRef, data: {label: 'Test'}});
         }
 
         async addController() {
@@ -115,6 +118,8 @@ module.exports = function () {
         }
 
         async onControllerAdded() {
+            this.printUserId();
+
         }
 
         async onControllerSettingsButtonClicked() {
@@ -158,6 +163,7 @@ module.exports = function () {
         async printUserId() {
             return this.editorSDK.info.getUserId().then((userId)=>console.log(userId));
         }
+
 
     }
     return {
