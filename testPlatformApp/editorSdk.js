@@ -11,31 +11,6 @@ module.exports = function () {
         if (options.firstInstall) {
             await app.install();
         }
-
-        // let playButton = await app.getComponentByRole("Play");
-        // console.log(playButton);
-        // await app.updateConnection(playButton.componentRef, "Play", {a: 1});
-        // playButton = await app.getComponentByRole("Play");
-        // console.log(playButton);
-        // await app.updateConnection(playButton.componentRef, "Play", {b: 2});
-        // playButton = await app.getComponentByRole("Play");
-        // console.log(playButton);
-        // await app.addConnectedComponent('mobile.core.components.Container', 'Box', {
-        //     applicationId: app.appDefinitionId,
-        //     type: "AppController",
-        //     controllerType: 'BoxControllerType',
-        //     name: 'BoxContainerController'
-        // });
-        // await app.addConnectedComponent('wysiwyg.viewer.components.VectorImage', 'shape', {
-        //     svgId: "svgshape.v2.Svg_08e9266742a9484b90115d29bbfa9360",
-        //     type: "VectorImage"
-        // });
-        //
-        // await app.addConnectedComponent('wysiwyg.viewer.components.VectorImage', 'fox', {
-        //     svgId: "4431a8dffbcc4169b10bf364fee0b7f2.svg",
-        //     title: "Fox",
-        //     type: "VectorImage"
-        // });
     }
 
     async function onEvent(event) {
@@ -120,12 +95,10 @@ module.exports = function () {
 
         async install() {
             await this.addController();
-            await this.addConnectedComponent('wysiwyg.viewer.components.Video', 'Player', {videoId: "WWpQK3nQclU"});
-            const playButtonRef = await this.addConnectedComponent('wysiwyg.viewer.components.SiteButton', 'Play');
-            await this.editorSDK.components.data.update(null, {componentRef: playButtonRef, data: {label: 'Play'}});
-            const pauseButtonRef = await this.addConnectedComponent('wysiwyg.viewer.components.SiteButton', 'Pause');
-            await this.editorSDK.components.data.update(null, {componentRef: pauseButtonRef, data: {label: 'Pause'}});
+            const buttonRef = await this.addConnectedComponent('wysiwyg.viewer.components.SiteButton', 'buttonrole');
+            await this.editorSDK.components.data.update(null, {componentRef: buttonRef, data: {label: 'Get User Id'}});
         }
+
         async addController() {
             return this.editorSDK.components.add('token', {
                 componentDefinition: {
@@ -174,17 +147,6 @@ module.exports = function () {
         async getComponentByRole(role) {
             const components = await this.getComponents();
             return components.find(comp => comp.connection.role === role);
-        }
-
-        async updateConnection(componentRef, role, connectionConfig) {
-            console.log(await this.getController());
-            this.editorSDK.controllers.connect('token', {
-                controllerRef: await this.getController(),
-                connectToRef: componentRef,
-                role: role,
-                connectionConfig,
-                isPrimary: true
-            });
         }
 
         async printComponents() {
