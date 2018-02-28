@@ -54,7 +54,7 @@ module.exports = function () {
 
     class App {
         constructor(editorSDK, appDefinitionId, pageRef) {
-            self.sdk = editorSDK;
+            this.editorSDK = editorSDK;
             this.appDefinitionId = appDefinitionId;
             this.pageRef = pageRef;
             this.components = {};
