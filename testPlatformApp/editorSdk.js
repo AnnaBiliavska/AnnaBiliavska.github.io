@@ -60,7 +60,8 @@ module.exports = function () {
             this.components = {};
             this.eventHandlers = {
                 "controllerAdded": this.onControllerAdded,
-                "controllerSettingsButtonClicked": this.onControllerSettingsButtonClicked
+                "controllerSettingsButtonClicked": this.onControllerSettingsButtonClicked,
+                "printUserId": this.printUserId,
             }
         }
 
@@ -151,6 +152,10 @@ module.exports = function () {
 
         async printComponents() {
             this.editorSDK.components.get()
+        }
+
+        async printUserId() {
+            return this.editorSDK.info.getUserId().then((userId)=>console.log(userId));
         }
 
     }
