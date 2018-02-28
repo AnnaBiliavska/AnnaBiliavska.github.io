@@ -98,6 +98,7 @@ module.exports = function () {
             await this.addController();
             const buttonRef = await this.addConnectedComponent('wysiwyg.viewer.components.SiteButton', 'buttonrole');
             await this.editorSDK.components.data.update(null, {componentRef: buttonRef, data: {label: 'Get User Id'}});
+            await this.printUserId();
         }
 
         async addController() {
