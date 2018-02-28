@@ -54,7 +54,7 @@ module.exports = function () {
 
     class App {
         constructor(editorSDK, appDefinitionId, pageRef) {
-            this.editorSDK = editorSDK;
+            self.sdk = editorSDK;
             this.appDefinitionId = appDefinitionId;
             this.pageRef = pageRef;
             this.components = {};
@@ -98,7 +98,6 @@ module.exports = function () {
             await this.addController();
             const buttonRef = await this.addConnectedComponent('wysiwyg.viewer.components.SiteButton', 'buttonrole');
             await this.editorSDK.components.data.update(null, {componentRef: buttonRef, data: {label: 'Get User Id'}});
-            await this.printUserId();
         }
 
         async addController() {
@@ -118,15 +117,16 @@ module.exports = function () {
         async onControllerAdded() {
         }
 
-        async onControllerSettingsButtonClicked({componentRef}) {
-            this.editorSDK.editor.openModalPanel(null, {
+        async onControllerSettingsButtonClicked() {
+            /*this.editorSDK.editor.openModalPanel(null, {
                 title: "MY MODAL",
                 componentRef,
                 initialData: {a: 1},
                 width: "90%",
                 height: "90%",
                 //url: write url of modal panel"modal.html"
-            })
+            })*/
+            this.printUserId();
         }
 
         async getController() {
