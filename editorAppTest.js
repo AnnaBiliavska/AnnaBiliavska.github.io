@@ -27,7 +27,7 @@ function getAppManifest() {
                                 rotatable: false,
                                 duplicatable: false,
                                 toggleShowOnAllPagesEnabled: false,
-                                //pinnable: false,
+                                pinnable: false,
                                 resizable: false,
                             },
                         },
