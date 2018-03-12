@@ -5,7 +5,7 @@ module.exports = {
             return {
                 data: {
                     hideTitle: true,
-                    isLandingPage: true,
+                    isLandingPage: false,
                     indexable: false,
                     hidePage: true,
                     managingAppDefinitionId: appDefinitionId
@@ -13,7 +13,7 @@ module.exports = {
                 components: []
             };
         }
-        editorSDK.pages.add('token',{title: 'TestPage', definition:getPageStructure()})
+        editorSDK.pages.add('token',{title: 'AdminPage', definition:getPageStructure()})
 
     },
     getAppManifest() {
@@ -89,7 +89,7 @@ module.exports = {
                             advanced: false
                         },
                         override: {
-                            displayName: 'Admin pagesOUT OF DEVVVVVVV'
+                            displayName: 'Admin pages category'
                         }
                     }]
 
