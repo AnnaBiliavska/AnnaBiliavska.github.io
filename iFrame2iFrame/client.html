@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.94.0/js/wix.min.js"></script>
+    <title>Client</title>
+</head>
+<body>
+<h1>Client</h1>
+<button onclick="onButtonClicked()">Test Section</button>
+<button onclick="onClicked()">Test Widget</button>
+<h3 id="result"></h3>
+<h3 id="value"></h3>
+<h3 id="product"></h3>
+
+<h3 id="addsum"></h3>
+
+</body>
+</html>
+
+<script>
+    //const APP = "1509fd92-14c3-0bd1-1888-7e73e61851f3";
+    function onButtonClicked() {
+        Wix.requireSingletonAPI(APP, Wix.Apps.Type.PAGE, apiObject => {
+            apiObject.multiply(55 ,123).then(result => document.getElementById("result").innerText = result);
+            apiObject.sectionUrl()
+            apiObject.getValue().then( value => document.getElementById("value").innerText = "text value: " + value);
+            apiObject.getProduct().then( product => document.getElementById("product").innerText = "product: " + product);
+            apiObject.pinkBG()
+        });
+    }
+    function onClicked() {
+        Wix.requireSingletonAPI(APP, Wix.Apps.Type.WIDGET, apiObject => {
+            apiObject.sum(10 ,30).then(addsum => document.getElementById("addsum").innerText = addsum);
+            apiObject.getValue().then( value => document.getElementById("value").innerText = "text value: " + value);
+            apiObject.greenBG();
+
+        });
+    }
+    Wix.requireSingletonAPI(APP, Wix.Apps.Type.WIDGET, apiObject1 => {
+        //apiObject1.greenBG();
+
+        //apiObject1.onItemClick(function() { console.log("I'm onItemClick event!") }); //example for how to subscribe to an event of the TPA Provider with an handler function
+        //apiObject1.OnDoubleClick(function() { console.log("provider has just been double clicked!") });
+        Wix.requireSingletonAPI(APP, Wix.Apps.Type.PAGE, apiObject2 => {
+            // apiObject2.pinkBG()
+            apiObject2.onItemClick(function() { console.log("I'm onItemClick event!") }); //example for how to subscribe to an event of the TPA Provider with an handler function
+            apiObject2.OnDoubleClick(function() { console.log("provider has just been double clicked!") });
+        });
+    }, function(err) {
+        console.log(err)
+    });
+</script>
