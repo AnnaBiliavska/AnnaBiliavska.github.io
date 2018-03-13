@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/da7df86a686f85b0eef32381a30e577aa3ad90a4/js/wix-private.min.js"></script>
+    <title>Provider</title>
+</head>
+<body>
+<h1>glued</h1>
+<p>(Provider - gluedWidget.html)</p>
+<h3>Product:</h3>
+<h2 id="state"></h2>
+<button onclick="func()">CLICK ME</button>
+<!-- <input ondblclick="dbl()"> -->
+<input id="text-widget">
+
+
+<p id="number"></p>
+<p id="sectionURL"></p>
+
+
+</body>
+</html>
+
+
+<script>
+    document.getElementById("state").innerText = document.location.pathname;
+
+
+    function sum(value1, value2){
+        return value1 + value2;
+    };
+
+    function getValue() {
+        console.log(document.getElementById("text-widget").value)
+        return document.getElementById("text-widget").value;
+    };
+
+    function greenBG(){
+        document.bgColor='green';
+    }
+
+
+    function getProduct() {
+        return document.location.pathname
+    }
+
+
+    function func() {
+        Wix.fireEvent("itemClicked")
+    }
+
+    function dbl() {
+        Wix.fireEvent("doubleClicked")
+    }
+
+
+    var apiObject = {
+        sum: sum,
+        greenBG: greenBG,
+        getValue: getValue,
+        getProduct: getProduct
+
+    }
+
+    Wix.registerApi(apiObject)
+
+
+</script>
