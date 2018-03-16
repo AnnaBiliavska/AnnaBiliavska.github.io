@@ -1,20 +1,34 @@
 'use strict';
-module.exports = {
-    editorReady(editorSDK, appDefinitionId) {
-        function getPageStructure() {
-            return {
-                data: {
-                    hideTitle: true,
-                    isLandingPage: false,
-                    indexable: false,
-                    hidePage: true,
-                    managingAppDefinitionId: appDefinitionId
-                },
-                components: []
-            };
-        }
-        editorSDK.pages.add('token',{title: 'AdminPage', definition:getPageStructure()})
 
+function addPage(editorSDK, appDefinitionId){
+    function randomString() {
+        var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        var length = 8
+        var result = '';
+        for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+        return result.toLowerCase();
+    }
+    function getPageStructure() {
+
+        return {
+            data: {
+                hideTitle: true,
+                isLandingPage: true,
+                indexable: false,
+                hidePage: true,
+                managingAppDefId: appDefinitionId
+            },
+            components: []
+        };
+    }
+    editorSDK.pages.add('token',{title: 'title'+ randomString(), definition:getPageStructure()})
+}
+
+module.exports = {
+    editorReady(editorSDK, appDefinitionId, options) {
+        if(options.firstInstall){
+            addPage(editorSDK, appDefinitionId);
+        }
     },
     getAppManifest() {
         return {
@@ -89,7 +103,7 @@ module.exports = {
                             advanced: false
                         },
                         override: {
-                            displayName: 'Admin pages category'
+                            displayName: 'Admin pagesOUT OF DEVVVVVVV'
                         }
                     }]
 
