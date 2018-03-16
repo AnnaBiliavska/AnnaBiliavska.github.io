@@ -94,7 +94,7 @@ module.exports = {
                         displayName: 'Admin pages',
                         helpId: 'd243ad48-2e17-4786-99d7-23d011aa4bd6',
                         emptyState: {
-                            url: './panel.html',
+                            url: './emptyState.html',
                             helpId: '2fd96dc5-ff35-4ead-9917-12b487c59fe4'
                         }
                     },
