@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>App to test editor sdk</title>
-    <script type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.87.0/js/wix.min.js"></script>
+    <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/1.94.0/js/wix-private.js"></script>
 </head>
 <body>
  <h2>Editor SDK app</h2>
 </body>
 </html>
+
+<script>
+    Wix.getPublicAPI({appDefinitionId: "15173ef5-0c20-5475-0524-4fe42c3ee64e"}, function (api) {
+        Wix.getComponentInfo(function (info) {
+            const compId = info.compId;
+            console.log(api);
+            api.registerOpenPopUpFunction(openPopUp);
+        });
+    }, function (error) {
+        console.log(error);
+    });
+</script>
 
