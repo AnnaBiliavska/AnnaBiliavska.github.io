@@ -3,10 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>WidgetApp</title>
-    <script type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.94.0/js/wix.min.js"></script>
+    <script type="text/javascript" src="//static.parastorage.com/services/js-sdk/1.95.0/js/wix.min.js"></script>
 </head>
 <body style='border:2px solid black; background-color: white;'>
 <p>Enable TPA to expose API to WixCode from viewerScript</p>
 
 </body>
 </html>
+
+<script>
+    function openPopUp(url) {
+        Wix.openPopup(url, 300, 300);
+    }
+    Wix.getPublicAPI({appDefinitionId: "151ae411-99f6-2f8f-cee7-6fe5e50f7a7e"}, function (api) {
+        Wix.getComponentInfo(function (info) {
+            const compId = info.compId;
+            console.log(api);
+            api.registerOpenPopUpFunction(openPopUp);
+            //api.fireEvent();
+        });
+    }, function (error) {
+        console.log(error);
+    });
+</script>
