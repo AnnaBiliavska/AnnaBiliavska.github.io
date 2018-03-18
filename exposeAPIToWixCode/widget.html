@@ -12,8 +12,11 @@
 </html>
 
 <script>
+    var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
+    var onClose = function(message) { console.log("popup closed", message) };
+
     function openPopUp(url) {
-        Wix.openPopup(url, 300, 300);
+        Wix.openPopup(url, 400, 400, position, onClose);
     }
     Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
         Wix.getComponentInfo(function (info) {
@@ -26,3 +29,12 @@
         console.log(error);
     });
 </script>
+
+
+function addToCart() {
+Wix.getPublicAPI({appDefinitionId: '1515aba9-2828-7528-a270-ce1dda0e9826'}, function (api) {
+api.addToCart("3124124")
+}, function (error) {
+console.log(error);
+});
+}
