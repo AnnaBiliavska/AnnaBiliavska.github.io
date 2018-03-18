@@ -1,4 +1,4 @@
-//const mainWidgetId = "14ffd3c2-de00-73d6-1831-64f837bb83f6";
+const mainWidgetId = "1519ae63-416e-f576-d55a-f804d84119db";
 // const _ = require("lodash");
 
 let openPopUp;
@@ -40,9 +40,9 @@ module.exports = {
         registerOpenPopUpFunction: function (func) {
             openPopUp = func
         },
-        //fireEvent() {
-        //    subscribers.forEach(fn => fn());
-        //}
+        fireEvent() {
+            subscribers.forEach(fn => fn());
+        }
         // fireEvent: function (compId, event) {
         //     console.log(event + " was fired");
         //     const events = {
