@@ -13,7 +13,7 @@ function openPopUp(url) {
 }
 
 
-/*function createControllers(controllerConfigs) {
+function createControllers(controllerConfigs) {
     console.log("controllerConfigs", controllerConfigs);
     return controllerConfigs.map(controllerConfig => {
         const compId = controllerConfig.config.compId;
@@ -31,16 +31,15 @@ function openPopUp(url) {
             pageReady: _.noop
         }
     });
-}*/
+}
 
 
 module.exports = {
     initAppForPage,
-    openPopUp,
-    /*createControllers,
+    createControllers,
     exports: {
         registerOpenPopUpFunction: function (func) {
             openPopUp = func
         }
-    }*/
+    }
 };
