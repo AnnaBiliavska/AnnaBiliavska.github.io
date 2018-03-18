@@ -36,10 +36,11 @@ function openPopUp(url) {
 
 module.exports = {
     initAppForPage,
-    //createControllers,
+    openPopUp,
+    /*createControllers,
     exports: {
         registerOpenPopUpFunction: function (func) {
             openPopUp = func
         }
-    }
+    }*/
 };
