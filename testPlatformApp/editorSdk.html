@@ -10,17 +10,4 @@
 </body>
 </html>
 
-<script>
-    function openPopUp(url) {
-        Wix.getPublicAPI({appDefinitionId: "15173ef5-0c20-5475-0524-4fe42c3ee64e"}, function (api) {
-            Wix.getComponentInfo(function (info) {
-                const compId = info.compId;
-                console.log(api);
-                api.registerOpenPopUpFunction(openPopUp);
-            });
-        }, function (error) {
-            console.log(error);
-        });
-    }
-</script>
 
