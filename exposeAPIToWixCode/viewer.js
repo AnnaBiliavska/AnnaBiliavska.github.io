@@ -2,6 +2,7 @@ const mainWidgetId = "1519ae63-416e-f576-d55a-f804d84119db";
 // const _ = require("lodash");
 
 let openPopUp;
+let navigateToPage;
 const subscribers = [];
 
 function initAppForPage() {
@@ -20,7 +21,12 @@ function createControllers(controllerConfigs) {
                     if (_.isFunction(openPopUp)) {
                         openPopUp(url);
                     } else {
-                        console.log("Error");
+                        console.log("Error111");
+                    }
+                },
+                navigateToPage: function () {
+                    if (_.isFunction(navigateToPage)) {
+                        navigateToPage();
                     }
                 },
                 onEvent: function (callback) {
@@ -39,6 +45,9 @@ module.exports = {
     exports: {
         registerOpenPopUpFunction: function (func) {
             openPopUp = func
+        },
+        registerNavigate: function (func) {
+            navigateToPage = func
         },
         fireEvent() {
             subscribers.forEach(fn => fn());
