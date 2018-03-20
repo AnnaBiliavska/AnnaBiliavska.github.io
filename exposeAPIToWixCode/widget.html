@@ -26,12 +26,18 @@
         });
     }
 
+    function refreshApi() {
+        var callback = console.log("test");
+        Wix.addEventListener(Wix.Events.PAGE_NAVIGATION, callback);
+    }
+
     Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
         Wix.getComponentInfo(function (info) {
             const compId = info.compId;
             console.log(api);
             api.registerOpenPopUpFunction(openPopUp);
             api.registerNavigate(navigateToPage);
+            api.registerRefreshApi(refreshApi);
             //api.fireEvent();
         });
     }, function (error) {

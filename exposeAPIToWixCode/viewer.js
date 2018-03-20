@@ -3,12 +3,12 @@ const mainWidgetId = "1519ae63-416e-f576-d55a-f804d84119db";
 
 let openPopUp;
 let navigateToPage;
+let refreshApi;
 const subscribers = [];
 
 function initAppForPage() {
     console.log("initAppForPage");
 }
-
 
 function createControllers(controllerConfigs) {
     console.log("controllerConfigs", controllerConfigs);
@@ -29,9 +29,14 @@ function createControllers(controllerConfigs) {
                         navigateToPage();
                     }
                 },
-                onEvent: function (callback) {
-                    subscribers.push(callback);
-                }
+                refreshApi: function () {
+                    if (_.isFunction(refreshApi)) {
+                        refreshApi();
+                    }
+                },
+                //onEvent: function () {
+                //    console.log(event);
+                //}
             },
             pageReady: _.noop
         }
@@ -49,9 +54,12 @@ module.exports = {
         registerNavigate: function (func) {
             navigateToPage = func
         },
-        fireEvent() {
-            subscribers.forEach(fn => fn());
-        }
+        registerRefreshApi: function (func) {
+            refreshApi = func
+        },
+        //fireEvent() {
+        //    subscribers.forEach(fn => fn());
+        //}
         // fireEvent: function (compId, event) {
         //     console.log(event + " was fired");
         //     const events = {
