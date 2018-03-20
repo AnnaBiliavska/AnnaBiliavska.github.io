@@ -26,17 +26,19 @@
         });
     }
 
-    var getApi = Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
-        Wix.getComponentInfo(function (info) {
-            const compId = info.compId;
-            console.log(api);
-            api.registerOpenPopUpFunction(openPopUp);
-            api.registerNavigate(navigateToPage);
-            //api.fireEvent();
+    var getApi = function() {
+        Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
+            Wix.getComponentInfo(function (info) {
+                const compId = info.compId;
+                console.log(api);
+                api.registerOpenPopUpFunction(openPopUp);
+                api.registerNavigate(navigateToPage);
+                //api.fireEvent();
+            });
+        }, function (error) {
+            console.log(error);
         });
-    }, function (error) {
-        console.log(error);
-    });
+    }
 
     Wix.addEventListener(Wix.Events.PAGE_NAVIGATION, getApi);
 
