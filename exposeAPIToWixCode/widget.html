@@ -18,11 +18,20 @@
     function openPopUp(url) {
         Wix.openPopup(url, 400, 400, position, onClose);
     }
+
+    function navigateToPage() {
+        Wix.getSiteMap(function(siteMap) {
+            var page_id = siteMap[1].pageId.substr(1);
+            Wix.navigateToPage(page_id);
+        });
+    }
+
     Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
         Wix.getComponentInfo(function (info) {
             const compId = info.compId;
             console.log(api);
             api.registerOpenPopUpFunction(openPopUp);
+            api.registerNavigate(navigateToPage);
             //api.fireEvent();
         });
     }, function (error) {
