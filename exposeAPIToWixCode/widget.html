@@ -39,15 +39,8 @@
         console.log(error);
     });
 
-    async function onEvent(event) {
-        console.log(event);
-        if (app.eventHandlers[event.eventType]) {
-            app.eventHandlers[event.eventType].call(app, event.eventPayload);
-        }
-    }
-
-    module.exports = {
-        onEvent,
+    async function test() {
+        Wix.addEventListener(Wix.Events.EDIT_MODE_CHANGE,function(data){ console.log(data); })
     }
 
 </script>
