@@ -7,15 +7,19 @@
 </head>
 <body style='border:2px solid black; background-color: white;'>
 <p>Enable TPA to expose API to WixCode from viewerScript</p>
-<button id=button">Click me</button>
+<button onClick="clearName()">Click me</button>
 <p id="printUser"></p>
 
 </body>
 </html>
 
 <script>
-    const button = document.getElementById("button");
+    //clear printUser field that was filled by function before
+    function clearName() {
+        document.getElementById("printUser").innerHTML = null;
+    }
 
+    //printUserName
     var userName = [];
 
     function printUser(userData) {
@@ -28,8 +32,7 @@
     }
 
 
-
-
+    //openPopUp
     var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
     var onClose = function(message) { console.log("popup closed", message) };
 
@@ -37,6 +40,7 @@
         Wix.openPopup(url, 400, 400, position, onClose);
     }
 
+    //navigate to second page
     function navigateToPage() {
         Wix.getSiteMap(function(siteMap) {
             var page_id = siteMap[1].pageId.substr(1);
@@ -46,7 +50,7 @@
 
 
     var getApi = function() {
-        document.getElementById("printUser").innerHTML = null;
+        clearName();
         Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
             Wix.getComponentInfo(function (info) {
                 const compId = info.compId;
