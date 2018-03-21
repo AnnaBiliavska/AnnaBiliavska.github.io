@@ -1,8 +1,11 @@
 const mainWidgetId = "1519ae63-416e-f576-d55a-f804d84119db";
+const gluedWidgetId = "151deac1-9052-40e0-58cb-d353e6786208";
+
 // const _ = require("lodash");
 
 let openPopUp;
 let navigateToPage;
+let getPageTitle;
 const subscribers = [];
 
 function initAppForPage() {
@@ -28,6 +31,14 @@ function createControllers(controllerConfigs) {
                         navigateToPage();
                     }
                 },
+                getPageTitle: function () {
+                    if (_.isFunction(getPageTitle)) {
+                        getPageTitle();
+                    }
+                    else {
+                        console.log("Cannot get title");
+                    }
+                },
                 //onEvent: function () {
                 //    console.log(event);
                 //}
@@ -48,6 +59,9 @@ module.exports = {
         registerNavigate: function (func) {
             navigateToPage = func
         },
+        registerGetTitle: function (func) {
+            getPageTitle = func
+        }
         //fireEvent() {
         //    subscribers.forEach(fn => fn());
         //}
