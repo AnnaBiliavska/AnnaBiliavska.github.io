@@ -6,6 +6,7 @@ const gluedWidgetId = "151deac1-9052-40e0-58cb-d353e6786208";
 let openPopUp;
 let navigateToPage;
 let getPageTitle;
+const handlers = [];
 const subscribers = [];
 
 function initAppForPage() {
@@ -39,8 +40,16 @@ function createControllers(controllerConfigs) {
                         console.log("Cannot get title");
                     }
                 },
-                onEvent: function (callback) {
-                    subscribers.push(callback);
+                click: function() {
+                    handlers[compId]();
+                    console.log("click: " + compId);
+                },
+                onClick: function(callback) {
+                    console.log("OnClick", callback);
+                    if (!subscribers[compId]) {
+                        subscribers[compId] = [];
+                    }
+                    subscribers[compId].push(callback)
                 }
             },
             pageReady: _.noop
@@ -62,16 +71,16 @@ module.exports = {
         registerGetTitle: function (func) {
             getPageTitle = func
         },
-        fireEvent() {
-            subscribers.forEach(fn => fn(console.log("ttt")));
+        onButtonClick: function (compId, callback) {
+            console.log("buttonClickHandler", compId);
+            handlers[compId] = callback;
         },
-        // fireEvent: function (compId, event) {
-        //     console.log(event + " was fired");
-        //     const events = {
-        //         "play": () => playEventSubscribers[compId].forEach(f => f()),
-        //         "pause": () => pauseEventSubscribers[compId].forEach(f => f()),
-        //     };
-        //     events[event]();
-        // }
+        fireEvent: function (compId, event) {
+            console.log(event + " was fired");
+            const events = {
+                "click": () => subscribers[compId].forEach(f => f()),
+            };
+            events[event]();
+        }
     }
 };
