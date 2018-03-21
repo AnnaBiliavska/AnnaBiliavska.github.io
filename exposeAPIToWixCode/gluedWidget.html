@@ -24,11 +24,10 @@
     function getPageTitle() {
         console.log("test");
         var title;
-        var pageTitle = document.getElementById("pageTitle").innerHTML.valueOf();
         Wix.getSiteInfo( function(siteInfo) {
             title = siteInfo.pageTitle;
             console.log(title);
-            pageTitle = pageTitle + title;
+            document.getElementById("pageTitle").innerHTML = "Page title is " + title;
         });
     }
 
