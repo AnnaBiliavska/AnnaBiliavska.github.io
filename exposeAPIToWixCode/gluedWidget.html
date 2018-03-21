@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GluedWidgetApp</title>
+    <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/1.94.0/js/wix-private.js"></script>
+</head>
+<body style='border:2px solid black; background-color: white;'>
+<p>Enable TPA to expose API to WixCode from viewerScript</p>
+<br>
+<p>Glued widget</p>
+
+</body>
+</html>
+
+<script>
+    var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
+    var onClose = function(message) { console.log("popup closed", message) };
+
+    function openPopUp(url) {
+        Wix.openPopup(url, 400, 400, position, onClose);
+    }
+
+    var getApi = function() {
+        Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
+            Wix.getComponentInfo(function (info) {
+                const compId = info.compId;
+                console.log(api);
+                api.registerOpenPopUpFunction(openPopUp);
+                //api.fireEvent();
+            });
+        }, function (error) {
+            console.log(error);
+        });
+    }
+
+    getApi();
+
+    Wix.addEventListener(Wix.Events.PAGE_NAVIGATION, getApi);
+
+</script>
