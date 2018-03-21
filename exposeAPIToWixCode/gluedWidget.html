@@ -24,12 +24,12 @@
     function getPageTitle() {
         console.log("test");
         var title;
-        //var pageTitle = document.getElementById("pageTitle").innerHTML;
+        var pageTitle = document.getElementById("pageTitle").innerHTML;
         Wix.getSiteInfo( function(siteInfo) {
             title = siteInfo.pageTitle;
             console.log(title);
+            pageTitle = pageTitle + title;
         });
-        //pageTitle = pageTitle + title;
     }
 
     var getApi = function() {
