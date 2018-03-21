@@ -23,7 +23,7 @@
 
     function getPageTitle() {
         var title;
-        var pageTitle = document.getElementById("pageTitle").innerText;
+        var pageTitle = document.getElementById("pageTitle").innerHTML;
         Wix.getSiteInfo( function(siteInfo) {
             title = siteInfo.pageTitle;
             return title;
