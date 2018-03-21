@@ -43,7 +43,7 @@
                 api.registerOpenPopUpFunction(openPopUp);
                 api.registerNavigate(navigateToPage);
 
-                button.click = function () {
+                button.onClick = function () {
                     api.fireEvent(compId, "click");
                     console.log("Button is clicked");
                 }
