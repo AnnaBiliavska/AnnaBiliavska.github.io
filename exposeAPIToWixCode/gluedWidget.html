@@ -7,7 +7,7 @@
 </head>
 <body style='border:2px solid black; background-color: white;'>
 <p>GLUED WIDGET</p>
-<p>Page Title:</p>
+<p id="pageTitle">Page Title: </p>
 
 
 </body>
@@ -22,7 +22,13 @@
     }
 
     function getPageTitle() {
-
+        var title;
+        var pageTitle = document.getElementById("pageTitle").innerText;
+        Wix.getSiteInfo( function(siteInfo) {
+            title = siteInfo.pageTitle;
+            return title;
+        });
+        pageTitle = pageTitle + title;
     }
 
     var getApi = function() {
