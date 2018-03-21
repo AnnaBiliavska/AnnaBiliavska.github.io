@@ -39,9 +39,9 @@ function createControllers(controllerConfigs) {
                         console.log("Cannot get title");
                     }
                 },
-                //onEvent: function () {
-                //    console.log(event);
-                //}
+                onEvent: function (callback) {
+                    subscribers.push(callback);
+                }
             },
             pageReady: _.noop
         }
@@ -61,10 +61,10 @@ module.exports = {
         },
         registerGetTitle: function (func) {
             getPageTitle = func
-        }
-        //fireEvent() {
-        //    subscribers.forEach(fn => fn());
-        //}
+        },
+        fireEvent() {
+            subscribers.forEach(fn => fn(console.log("ttt")));
+        },
         // fireEvent: function (compId, event) {
         //     console.log(event + " was fired");
         //     const events = {
