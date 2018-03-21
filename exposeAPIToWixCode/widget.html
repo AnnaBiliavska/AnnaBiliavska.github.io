@@ -8,12 +8,25 @@
 <body style='border:2px solid black; background-color: white;'>
 <p>Enable TPA to expose API to WixCode from viewerScript</p>
 <button id=button">Click me</button>
+<p id="printUser"></p>
 
 </body>
 </html>
 
 <script>
     const button = document.getElementById("button");
+
+    var userName = [];
+
+    function printUser(userData) {
+        document.getElementById("printUser"),innerHTML = userData;
+    }
+
+    function getName (options, callback) {
+        userName.push(options);
+        callback(options);
+    }
+
 
 
 
@@ -39,8 +52,7 @@
                 console.log(api);
                 api.registerOpenPopUpFunction(openPopUp);
                 api.registerNavigate(navigateToPage);
-
-
+                api.registerGetName(getName);
             });
         }, function (error) {
             console.log(error);

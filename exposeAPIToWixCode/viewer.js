@@ -6,6 +6,7 @@ const gluedWidgetId = "151deac1-9052-40e0-58cb-d353e6786208";
 let openPopUp;
 let navigateToPage;
 let getPageTitle;
+let getName;
 
 function initAppForPage() {
     console.log("initAppForPage");
@@ -38,6 +39,14 @@ function createControllers(controllerConfigs) {
                         console.log("Cannot get title");
                     }
                 },
+                getName: function (options, callback) {
+                    if (_.isFunction(getName)) {
+                        getName(options, callback);
+                    }
+                    else {
+                        console.log("Cannot get name");
+                    }
+                }
             },
             pageReady: _.noop
         }
@@ -57,6 +66,9 @@ module.exports = {
         },
         registerGetTitle: function (func) {
             getPageTitle = func
+        },
+        registerGetName: function (func) {
+            getName = func
         },
     }
 };
