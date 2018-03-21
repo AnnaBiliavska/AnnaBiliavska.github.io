@@ -7,6 +7,7 @@ let openPopUp;
 let navigateToPage;
 let getPageTitle;
 let getName;
+let printUser;
 
 function initAppForPage() {
     console.log("initAppForPage");
@@ -46,7 +47,15 @@ function createControllers(controllerConfigs) {
                     else {
                         console.log("Cannot get name");
                     }
-                }
+                },
+                printUser: function (userData) {
+                    if (_.isFunction(getName)) {
+                        printUser(userData);
+                    }
+                    else {
+                        console.log("Cannot print");
+                    }
+                },
             },
             pageReady: _.noop
         }
@@ -68,6 +77,9 @@ module.exports = {
             getPageTitle = func
         },
         registerGetName: function (func) {
+            getName = func
+        },
+        registerPrintUser: function (func) {
             getName = func
         },
     }
