@@ -6,8 +6,6 @@ const gluedWidgetId = "151deac1-9052-40e0-58cb-d353e6786208";
 let openPopUp;
 let navigateToPage;
 let getPageTitle;
-const handlers = [];
-const subscribers = [];
 
 function initAppForPage() {
     console.log("initAppForPage");
@@ -40,17 +38,6 @@ function createControllers(controllerConfigs) {
                         console.log("Cannot get title");
                     }
                 },
-                click: function() {
-                    handlers[compId]();
-                    console.log("click: " + compId);
-                },
-                onClick: function(callback) {
-                    console.log("OnClick", callback);
-                    if (!subscribers[compId]) {
-                        subscribers[compId] = [];
-                    }
-                    subscribers[compId].push(callback)
-                }
             },
             pageReady: _.noop
         }
@@ -71,16 +58,5 @@ module.exports = {
         registerGetTitle: function (func) {
             getPageTitle = func
         },
-        onButtonClick: function (compId, callback) {
-            console.log("buttonClickHandler", compId);
-            handlers[compId] = callback;
-        },
-        fireEvent: function (compId, event) {
-            console.log(event + " was fired");
-            const events = {
-                "click": () => subscribers[compId].forEach(f => f()),
-            };
-            events[event]();
-        }
     }
 };

@@ -15,9 +15,6 @@
 <script>
     const button = document.getElementById("button");
 
-    function click() {
-        button.click();
-    }
 
 
     var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
@@ -43,12 +40,6 @@
                 api.registerOpenPopUpFunction(openPopUp);
                 api.registerNavigate(navigateToPage);
 
-                button.onClick = function () {
-                    api.fireEvent(compId, "click");
-                    console.log("Button is clicked");
-                }
-
-                api.onButtonClick(compId, click);
 
             });
         }, function (error) {
