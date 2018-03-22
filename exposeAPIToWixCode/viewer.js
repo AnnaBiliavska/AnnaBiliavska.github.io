@@ -50,7 +50,7 @@ function createControllers(controllerConfigs) {
                     }
                 },
                 printUser: function (userData) {
-                    if (_.isFunction(getName)) {
+                    if (_.isFunction(printUser)) {
                         printUser(userData);
                     }
                     else {
