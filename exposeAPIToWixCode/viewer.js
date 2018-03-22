@@ -51,15 +51,10 @@ function createControllers(controllerConfigs) {
                 },
                 printUser: function (userData) {
                     if (_.isFunction(getName)) {
-                        printUser(userData, logName);
+                        printUser(userData);
                     }
                     else {
                         console.log("Cannot print");
-                    }
-                },
-                logName: function (name) {
-                    if (_.isFunction(logName)) {
-                        logName(name);
                     }
                 },
             },
@@ -87,9 +82,6 @@ module.exports = {
         },
         registerPrintUser: function (func) {
             printUser = func
-        },
-        registerLogName: function (func) {
-            logName = func
         },
     }
 };
