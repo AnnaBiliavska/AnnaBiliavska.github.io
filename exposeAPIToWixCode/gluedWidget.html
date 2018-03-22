@@ -8,12 +8,13 @@
 <body style='border:2px solid black; background-color: white;'>
 <p>GLUED WIDGET</p>
 <p id="pageTitle">Page Title: </p>
-
+<button>Click Me</button>
 
 </body>
 </html>
 
 <script>
+    //open popup
     var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
     var onClose = function(message) { console.log("popup closed", message) };
 
@@ -21,6 +22,7 @@
         Wix.openPopup(url, 400, 400, position, onClose);
     }
 
+    //get page title and print it in widget
     function getPageTitle() {
         console.log("test");
         var title;

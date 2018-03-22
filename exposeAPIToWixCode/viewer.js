@@ -8,6 +8,7 @@ let navigateToPage;
 let getPageTitle;
 let getName;
 let printUser;
+let logName;
 
 function initAppForPage() {
     console.log("initAppForPage");
@@ -50,10 +51,15 @@ function createControllers(controllerConfigs) {
                 },
                 printUser: function (userData) {
                     if (_.isFunction(getName)) {
-                        printUser(userData);
+                        printUser(userData, logName);
                     }
                     else {
                         console.log("Cannot print");
+                    }
+                },
+                logName: function (name) {
+                    if (_.isFunction(logName)) {
+                        logName(name);
                     }
                 },
             },
@@ -80,7 +86,10 @@ module.exports = {
             getName = func
         },
         registerPrintUser: function (func) {
-            getName = func
+            printUser = func
+        },
+        registerLogName: function (func) {
+            logName = func
         },
     }
 };

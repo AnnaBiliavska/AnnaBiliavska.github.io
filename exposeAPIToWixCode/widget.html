@@ -22,14 +22,20 @@
     //printUserName
     var userName = [];
 
-    function printUser(userData) {
+    function logName(name) {
+        console.log("Name is " + name);
+    }
+
+    function printUser(userData, logName) {
         document.getElementById("printUser").innerHTML = userData;
+        logName(userData);
     }
 
     function getName (options, callback) {
         userName.push(options);
         callback(options);
     }
+
 
 
     //openPopUp
@@ -59,6 +65,7 @@
                 api.registerNavigate(navigateToPage);
                 api.registerGetName(getName);
                 api.registerPrintUser(printUser);
+                api.registerLogName(logName)
             });
         }, function (error) {
             console.log(error);
