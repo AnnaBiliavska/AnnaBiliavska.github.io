@@ -10,7 +10,7 @@ let getName;
 let printUser;
 
 function initAppForPage() {
-    console.log("initAppForPage");
+    console.log("initAppForPage111");
 }
 
 function createControllers(controllerConfigs) {
@@ -80,7 +80,7 @@ module.exports = {
             getName = func
         },
         registerPrintUser: function (func) {
-            getName = func
+            printUser = func
         },
     }
 };
