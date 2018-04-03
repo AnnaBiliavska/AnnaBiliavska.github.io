@@ -123,15 +123,16 @@ module.exports = function () {
         }
 
         async onControllerSettingsButtonClicked() {
-            /*this.editorSDK.editor.openModalPanel(null, {
-                title: "MY MODAL",
-                componentRef,
-                initialData: {a: 1},
-                width: "90%",
-                height: "90%",
-                //url: write url of modal panel"modal.html"
-            })*/
-            this.printUserId();
+            this.editorSDK.editor.openComponentPanel(null, {
+                type: "test",
+                //title: "MY PANEL",
+                componentRef: {type: "DESKTOP", id: "comp-jeyeju36"},
+                //initialData: {a: 1},
+                //width: "90%",
+                //height: "90%",
+                url: "./editorSdk.html",
+            });
+            //this.printUserId();
         }
 
         async getController() {

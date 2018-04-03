@@ -8,7 +8,6 @@ let navigateToPage;
 let getPageTitle;
 let getName;
 let printUser;
-let logName;
 
 function initAppForPage() {
     console.log("initAppForPage");
@@ -81,7 +80,7 @@ module.exports = {
             getName = func
         },
         registerPrintUser: function (func) {
-            printUser = func
+            getName = func
         },
     }
 };
