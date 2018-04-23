@@ -6,15 +6,49 @@
     <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/1.95.0/js/wix-private.js"></script>
 </head>
 <body style='border:2px solid black; background-color: white;'>
-<p>Enable TPA to expose API to WixCode from viewerScript</p>
-<button onClick="clearName()">Clear Result below</button>
-<p id="printUser"></p>
-
+ <p>Enable TPA to expose API to WixCode from viewerScript</p>
+ <button onClick="clearName()">Clear printed name below</button>
+ <p id="printUser"></p>
+ <br>
+ <p>What animal to show:</p>
+ <form>
+    <select name="pets" id="pets">
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="bird">Bird</option>
+        <option value="fish">Fish</option>
+    </select>
+    <br>
+     <input type="button" value="Show pic" onclick="showPet()">
+ </form>
+ <br><br>
+ <button onClick="testFunction()">Multiply numbers below</button>
 </body>
 </html>
 
 <script>
-    //clear printUser field that was filled by function before
+    var viewerScriptApi;
+    var pet;
+
+
+    function getPet() {
+        console.log('inside getImage');
+        pet = document.getElementById('pets').value;
+        return pet;
+    }
+
+    function showPet() {
+        getPet();
+        console.log("pet is " + pet);
+        viewerScriptApi.showImage(pet);
+    }
+
+    //on tpa button click
+    function testFunction() {
+        viewerScriptApi.buttonClick();
+    }
+
+    //clear printUser field
     function clearName() {
         document.getElementById("printUser").innerHTML = null;
     }
@@ -27,9 +61,9 @@
         document.getElementById("printUser").innerHTML = userData;
     }
 
-    function getName (options, callback) {
+    function getName (options) {
         userName.push(options);
-        callback(options);
+        printUser(options);
     }
 
 
@@ -54,9 +88,10 @@
     var getApi = function() {
         clearName();
         Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
+            viewerScriptApi = api;
             Wix.getComponentInfo(function (info) {
                 const compId = info.compId;
-                console.log(api);
+                //console.log(api);
                 api.registerOpenPopUpFunction(openPopUp);
                 api.registerNavigate(navigateToPage);
                 api.registerGetName(getName);
@@ -68,6 +103,7 @@
     }
 
     getApi();
+
 
     Wix.addEventListener(Wix.Events.PAGE_NAVIGATION, getApi);
 

@@ -3,11 +3,14 @@ const gluedWidgetId = "151deac1-9052-40e0-58cb-d353e6786208";
 
 // const _ = require("lodash");
 
+
 let openPopUp;
 let navigateToPage;
 let getPageTitle;
-let getName;
+let getNameTpa;
 let printUser;
+let buttonClick;
+let showImage;
 
 function initAppForPage() {
     console.log("initAppForPage111");
@@ -40,9 +43,9 @@ function createControllers(controllerConfigs) {
                         console.log("Cannot get title");
                     }
                 },
-                getName: function (options, callback) {
-                    if (_.isFunction(getName)) {
-                        getName(options, callback);
+                getName: function (name) {
+                    if (_.isFunction(getNameTpa)) {
+                        getNameTpa(name);
                     }
                     else {
                         console.log("Cannot get name");
@@ -55,6 +58,12 @@ function createControllers(controllerConfigs) {
                     else {
                         console.log("Cannot print");
                     }
+                },
+                onTestButtonClicked: function (func) {
+                    buttonClick = func
+                },
+                onFormSubmit: function (func) {
+                    showImage = func
                 },
             },
             pageReady: _.noop
@@ -77,10 +86,16 @@ module.exports = {
             getPageTitle = func
         },
         registerGetName: function (func) {
-            getName = func
+            getNameTpa = func;
         },
         registerPrintUser: function (func) {
             printUser = func
+        },
+        buttonClick: function () {
+            buttonClick();
+        },
+        showImage: function (pet) {
+            showImage(pet);
         },
     }
 };

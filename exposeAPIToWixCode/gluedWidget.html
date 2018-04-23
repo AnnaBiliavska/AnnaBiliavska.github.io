@@ -36,10 +36,9 @@
         Wix.getPublicAPI({appDefinitionId: "1519ae3f-32f6-5599-4196-7a9661eda3d5"}, function (api) {
             Wix.getComponentInfo(function (info) {
                 const compId = info.compId;
-                console.log(api);
+                //console.log(api);
                 api.registerOpenPopUpFunction(openPopUp);
                 api.registerGetTitle(getPageTitle);
-                //api.fireEvent();
             });
         }, function (error) {
             console.log(error);
