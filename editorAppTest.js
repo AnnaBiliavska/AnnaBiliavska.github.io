@@ -7,8 +7,8 @@ function getAppManifest() {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'This is' },
-                                    mainAction2:{ actionId: 'MANAGE', label: 'TEST' },
+                                    mainAction1:{ actionId: 'EDIT', label: 'test' },
+                                    mainAction2:{ actionId: 'MANAGE', label: 'open Modal Panel' },
                                     iconButtons: {
                                         layout: {actionId: 'LAYOUT_PANEL'},
                                         design: {actionId: 'DESIGN_PANEL'},
@@ -60,21 +60,27 @@ function getAppManifest() {
 }
 var _port;
 var _editorSDK;
+
 function editorReady(editorSDK) {
     _editorSDK = editorSDK;
-
+    _editorSDK.application.reloadManifest().then((d)=>console.log("manifest reloaded onEditorReady"));
 }
+
+
 function onEvent(event) {
-    const componentRef = event.eventPayload.componentRef;
-    const eventId = event.eventPayload.id;
+    const componentRef = event.eventPayload && event.eventPayload.componentRef;
+    const eventId = event.eventPayload && event.eventPayload.id;
+    console.log(event);
     switch (event.eventType) {
         case 'componentGfppClicked':
             switch (eventId) {
                 case 'EDIT':
                     _editorSDK.components.data.update('token', {componentRef: componentRef, data:{label: 'edit button'}});
+                    console.log("edit button clicked");
+                    _editorSDK.application.reloadManifest().then((d)=>console.log("manifest is reloaded"));
                     break;
                 case 'MANAGE':
-                    _editorSDK.components.data.update('token', {componentRef: componentRef, data:{label: 'manage button'}});
+                    _editorSDK.editor.openModalPanel("token", {url: `./settingsPanel.html`});
                     break;
                 case 'CROP_PANEL':
                     _editorSDK.components.data.update('token', {componentRef: componentRef, data:{label: 'oh yeah'}});
@@ -90,6 +96,10 @@ function onEvent(event) {
                 default:
                     break;
             }
+            break;
+        case 'newVersionIsReady':
+            console.log('version');
+            _editorSDK.application.reloadManifest().then((d)=>console.log("is reloaded"));
             break;
         case 'someEventType':
             _port.postMessage(event.eventPayload);

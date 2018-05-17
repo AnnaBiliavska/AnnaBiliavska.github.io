@@ -42,8 +42,8 @@ module.exports = function () {
                                 },
                                 behavior: {
                                     rotatable: false,
-                                    duplicatable: false,
-                                    toggleShowOnAllPagesEnabled: false,
+                                    duplicatable: true,
+                                    toggleShowOnAllPagesEnabled: true,
                                     pinnable: false,
                                     resizable: false,
                                 },
@@ -126,13 +126,13 @@ module.exports = function () {
             this.editorSDK.editor.openComponentPanel(null, {
                 type: "test",
                 //title: "MY PANEL",
-                componentRef: {type: "DESKTOP", id: "comp-jeyeju36"},
+                componentRef: {type: "DESKTOP", id: "comp-jghom3vu"},
                 //initialData: {a: 1},
                 //width: "90%",
                 //height: "90%",
                 url: "./editorSdk.html",
             });
-            //this.printUserId();
+            this.printUserId();
         }
 
         async getController() {

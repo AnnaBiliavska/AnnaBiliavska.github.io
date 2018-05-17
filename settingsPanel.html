@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings panel</title>
+    <script type="text/javascript" src="https://static.parastorage.com/services/js-platform-editor-sdk/1.118.0/lib/editorSDK.min.js"></script>
+    <script>
+        editorSDK.panel.onEvent(async event => {
+            switch (event.eventType) {
+                case 'startConfiguration':
+                    await editorSDK.document.application.reloadManifest()
+                        .catch(() => {
+                            console.log('reload fail. it is fine');
+                        });
+                    break;
+            }
+        });
+    </script>
+</head>
+<body>
+<h2>This is settings panel</h2>
+<button onClick="reloadManifest()">Click me to refresh manifest</button>
+</body>
+</html>
+<script>
+    function reloadManifest(){
+        editorSDK.document.application.reloadManifest()
+            .catch(() => {
+                console.log("cannot reload. It's expected");
+            });
+    }
+</script>

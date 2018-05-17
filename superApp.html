@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WidgetApp</title>
+    <script type="text/javascript" src="//static.parastorage.com/services/js-sdk/fcb052db07cbb366acfa8325fb75ef45f36110d7/js/wix-private.js"></script>
+</head>
+<body style='border:4px solid indianred; background-color: lightyellow;'>
+<h2>I am SUPER app with super power</h2>
+<br>
+<p>Do you have super power?</p>
+<button onclick="openPopUp(url1)">Yes</button>
+<button onclick="openPopUp(url2)">No</button>
+
+</body>
+</html>
+
+<script>
+    var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
+    var onClose = function(message) { console.log("popup closed", message) };
+
+    function openPopUp(url) {
+        Wix.openPopup(url, 500, 500, position, onClose);
+    }
+
+    var url1 = "https://static.wixstatic.com/media/9e129762b0704499aa0ee7df0c755c34.jpg/v1/fill/w_600,h_400,al_c,q_80,usm_0.66_1.00_0.01/9e129762b0704499aa0ee7df0c755c34.webp";
+    var url2 = "https://static.wixstatic.com/media/ea14a555ce5a2b406f87d16119460e03.jpg/v1/crop/x_0,y_3,w_430,h_287/fill/w_600,h_400,al_c,lg_1,q_80/ea14a555ce5a2b406f87d16119460e03.webp";
+
+</script>

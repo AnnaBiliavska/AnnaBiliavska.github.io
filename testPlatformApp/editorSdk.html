@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>App to test editor sdk</title>
-    <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/1.94.0/js/wix-private.js"></script>
+    <script type="text/javascript" src="https://static.parastorage.com/services/js-sdk/ecf739daaca3e92d065e4d43ed2217a7c95e383d/js/wix-private.min.js"></script>
 </head>
 <body>
- <h2>Editor SDK app</h2>
+ <h2>Editor SDK app123</h2>
 </body>
 </html>
+<script>
+    function logEvent(){
+        console.log("test");
+    }
+
+    Wix.addEventListener(Wix.Events.EDIT_MODE_CHANGE, logEvent);
+
+    Wix.addEventListener(Wix.Events.EDITOR_EVENT, (event) => {
+        console.log("this is event:");
+        console.log(event);
+    });
+
+</script>
+
 
 
