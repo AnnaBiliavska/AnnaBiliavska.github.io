@@ -1,5 +1,6 @@
 'use strict';
 function getAppManifest() {
+    console.log('test');
     return { controllersStageData: {
             controllerWithExportsAsObject: {
                 default: {
