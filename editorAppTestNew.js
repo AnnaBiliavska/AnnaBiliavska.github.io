@@ -18,10 +18,12 @@ async function installApp(_editorSDK, _appDefinitionId, options) {
     }
 }
 
-module.exports = async() => {
+module.exports = () => {
+    console.log("start initialization");
 
     return {
-        editorReady: async editorSDK => {
+        editorReady: editorSDK => {
+            console.log("editor ready");
             return installApp(_editorSDK, _appDefinitionId, options);
         },
         getAppManifest: () => {
