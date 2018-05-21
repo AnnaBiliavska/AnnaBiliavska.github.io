@@ -23,8 +23,8 @@ module.exports = () => {
 
     return {
         editorReady: async editorSDK => {
-            console.log("editor ready");
-            return installApp(_editorSDK, _appDefinitionId, options);
+            await installApp(_editorSDK, _appDefinitionId, options);
+            return {}
         },
         getAppManifest: () => {
             return {
