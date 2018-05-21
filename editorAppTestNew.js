@@ -6,25 +6,21 @@ let app;
 //let status = ''
 
 
-async function installApp(_editorSDK, _appDefinitionId, options) {
+async function installApp(_editorSDK) {
     const pageRef = await _editorSDK.pages.getCurrent();
     self.sdk = _editorSDK;
     self.sdk.info.getUserId().then((userId)=>console.log(userId));
 
     app = new App(_editorSDK, _appDefinitionId, pageRef);
-
-    if (options.firstInstall) {
-        await app.install();
-    }
+    app.install();
 }
 
 module.exports = () => {
     console.log("start initialization");
 
     return {
-        editorReady: async editorSDK => {
-            await installApp(_editorSDK, _appDefinitionId, options);
-            return {}
+        editorReady: editorSDK => {
+            return installApp(editorSDK)
         },
         getAppManifest: () => {
             return {
