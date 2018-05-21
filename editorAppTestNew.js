@@ -6,10 +6,11 @@ let app;
 //let status = ''
 
 
-async function installApp(_editorSDK,_appDefinitionId) {
+async function installApp(_editorSDK) {
     const pageRef = await _editorSDK.pages.getCurrent();
     self.sdk = _editorSDK;
 
+    const _appDefinitionId = '1530a0ec-7bfd-9cf9-3218-2c70c6fed57d';
     app = new App(_editorSDK, _appDefinitionId, pageRef);
     app.install();
 }
@@ -19,7 +20,7 @@ module.exports = () => {
 
     return {
         editorReady: editorSDK => {
-            return installApp(editorSDK, appDefinitionId)
+            return installApp(editorSDK)
         },
         getAppManifest: () => {
             return {
