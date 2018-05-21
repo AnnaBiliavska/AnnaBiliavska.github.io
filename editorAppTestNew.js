@@ -22,7 +22,7 @@ module.exports = () => {
     console.log("start initialization");
 
     return {
-        editorReady: editorSDK => {
+        editorReady: async editorSDK => {
             console.log("editor ready");
             return installApp(_editorSDK, _appDefinitionId, options);
         },
