@@ -2,19 +2,20 @@
 
 let app;
 
-async function editorReady(editorSDK) {
+function editorReady(editorSDK) {
         console.log(editorSDK);
 }
 
 
-async function onEvent(event) {
-        console.log(event);
-        if (app.eventHandlers[event.eventType]) {
-            app.eventHandlers[event.eventType].call(app, event.eventPayload);
-        }
+function onEvent(event) {
+    switch (event.eventType) {
+        default:
+            break;
+    }
 }
 
 function getAppManifest() {
+    console.log('manifest loaded');
         return {}
 }
 
