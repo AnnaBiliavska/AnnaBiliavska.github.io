@@ -16,10 +16,10 @@ const token = 'token'
 
 module.exports = async() => {
     console.log('initialized');
-    await new Promise((res,rej) => setTimeout(rej, 3000));
 
     return {
-        editorReady: editorSDK => {
+        editorReady: async editorSDK => {
+            await Promise.reject(new Error('jkdjfkdjak'));
             return console.log('editorReady');
         },
         getAppManifest: () => {
