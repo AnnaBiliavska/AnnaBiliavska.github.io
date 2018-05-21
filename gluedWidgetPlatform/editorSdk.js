@@ -16,7 +16,6 @@ function onEvent(event) {
 
 function getAppManifest() {
     console.log('manifest loaded');
-        return {}
 }
 
 
