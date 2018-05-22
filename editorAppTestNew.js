@@ -15,7 +15,8 @@ async function installApp(_editorSDK) {
     app.install();
 }
 
-module.exports = () => {
+module.exports = async () => {
+    await Promise.reject(new Error('jkdjfkdjak'));
     console.log("start initialization");
 
     return {
