@@ -19,8 +19,7 @@ module.exports = () => {
     console.log("start initialization");
 
     return {
-        editorReady: async editorSDK => {
-            await Promise.reject(new Error('FATAL ERROR AHAHAHA'));
+        editorReady: editorSDK => {
             return installApp(editorSDK)
         },
         getAppManifest: () => {
