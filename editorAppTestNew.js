@@ -15,12 +15,12 @@ async function installApp(_editorSDK) {
     app.install();
 }
 
-module.exports = async () => {
-    await Promise.reject(new Error('jkdjfkdjak'));
+module.exports = () => {
     console.log("start initialization");
 
     return {
-        editorReady: editorSDK => {
+        editorReady: async editorSDK => {
+            await Promise.reject(new Error('FATAL ERROR AHAHAHA'));
             return installApp(editorSDK)
         },
         getAppManifest: () => {
