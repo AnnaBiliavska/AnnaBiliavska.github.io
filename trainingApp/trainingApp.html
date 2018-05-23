@@ -21,10 +21,10 @@
 
 <script>
     var position =  {origin: Wix.WindowOrigin.FIXED, placement: Wix.WindowPlacement.CENTER};
-    var onClose = function(message) { console.log('popup closed', message) };
+    var onClose = function(message) { console.log('you got it', message) };
 
     function testFunction(url) {
-      Wix.openPopup(url, 700, 500, position, onClose);
+      Wix.openPopup(url, 500, 300, position, onClose);
       console.log('who asked about mi-mi-mi?');
     }
 
