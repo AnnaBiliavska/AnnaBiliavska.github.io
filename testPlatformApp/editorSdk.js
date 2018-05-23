@@ -123,7 +123,7 @@ module.exports = function () {
         }
 
         async onControllerSettingsButtonClicked() {
-            this.editorSDK.editor.openComponentPanel(null, {
+            /*this.editorSDK.editor.openComponentPanel(null, {
                 type: "test",
                 //title: "MY PANEL",
                 componentRef: {type: "DESKTOP", id: "comp-jghom3vu"},
@@ -131,8 +131,8 @@ module.exports = function () {
                 //width: "90%",
                 //height: "90%",
                 url: "./editorSdk.html",
-            });
-            this.printUserId();
+            });*/
+            this.editorSDK.document.save().then(() => console.log("site saved test log")).catch(e => console.log("ERROR: " + e));
         }
 
         async getController() {
