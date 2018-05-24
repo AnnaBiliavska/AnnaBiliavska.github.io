@@ -9,7 +9,7 @@ function createControllers(controllerConfigs) {
     return controllerConfigs.map(controllerConfig => {
         return {
             exports: {
-                onTestButtonClicked: function (func) {
+                onAppButtonClick: function (func) {
                     buttonClick = func
                 }
             }
@@ -22,8 +22,8 @@ module.exports = {
     initAppForPage,
     createControllers,
     exports: {
-        buttonClick: function (name) {
-            buttonClick(name);
+        buttonClick: function () {
+            buttonClick();
         }
     }
 };
