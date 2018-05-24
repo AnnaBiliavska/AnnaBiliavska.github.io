@@ -48,11 +48,11 @@ function getAppManifest() {
 }
 
 async function onEvent(event) {
-    const componentRef = event.eventPayload.componentRef;
     const eventId = event.eventPayload && event.eventPayload.id;
     if (app.eventHandlers[event.eventType]) {
         app.eventHandlers[event.eventType].call(app, event.eventPayload);
     }
+    const componentRef = event.eventPayload.componentRef;
     switch (event.eventType) {
         case 'componentGfppClicked':
             switch (eventId) {
