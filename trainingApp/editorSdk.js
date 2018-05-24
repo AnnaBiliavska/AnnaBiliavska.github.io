@@ -4,9 +4,9 @@ let app;
 var _port;
 var _editorSDK;
 
-function editorReady(_editorSDK, _appDefinitionId) {
+async function editorReady(_editorSDK, _appDefinitionId) {
     console.log(_editorSDK);
-    const pageRef = editorSDK.pages.getCurrent();
+    const pageRef = await editorSDK.pages.getCurrent();
     self.sdk = _editorSDK;
 
     app = new App(_editorSDK, _appDefinitionId, pageRef);
