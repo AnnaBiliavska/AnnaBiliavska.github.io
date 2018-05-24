@@ -2,67 +2,65 @@
 
 let app;
 var _port;
-var _editorSDK;
 
-async function editorReady(_editorSDK, _appDefinitionId) {
+async function editorReady(_editorSDK, _appDefinitionId, options) {
     console.log(_editorSDK);
-    const pageRef = await editorSDK.pages.getCurrent();
+    const pageRef = await _editorSDK.pages.getCurrent();
     self.sdk = _editorSDK;
 
     app = new App(_editorSDK, _appDefinitionId, pageRef);
 
-    app.install();
+    if (options.firstInstall) {
+        await app.install();
+    }
 }
 
 function getAppManifest() {
-    return { controllersStageData: {
-            controllerWithExportsAsObject: {
+    return {
+        controllersStageData: {
+            fooBar: {
                 default: {
+                    visibility: 'DEV',
                     connections: {
                         buttonrole: {
                             gfpp: {
                                 desktop: {
-                                    mainAction1:{ actionId: 'EDIT', label: 'Option 1' },
-                                    mainAction2:{ actionId: 'MANAGE', label: 'Option 2' },
-                                    iconButtons: {
-                                        layout: {actionId: 'LAYOUT_PANEL'},
-                                    },
-                                    helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
+                                    mainAction1:{ actionId: 'EDIT', label: 'Option1' },
+                                    mainAction2:{ actionId: 'MANAGE', label: 'Option2' },
                                 },
                                 mobile: {
-                                    iconButtons: {
-                                        textSize: 'HIDE'
-                                    },
-                                    helpId: 'bc3c1b91-e9f4-441e-b89e-bb7801fe0b2c'
-                                }
+                                    mainAction1:{ actionId: 'MANAGE', label: 'Manage This Mobile' },
+                                },
                             },
                             behavior: {
                                 rotatable: false,
-                                duplicatable: false,
-                                toggleShowOnAllPagesEnabled: false,
+                                duplicatable: true,
+                                toggleShowOnAllPagesEnabled: true,
                                 pinnable: false,
                                 resizable: false,
                             },
-                        }
-                    },
-                    visibility: 'DEV'
+                        },
+                    }
                 }
             }
         }
-    };
+    }
 }
 
-function onEvent(event) {
+async function onEvent(event) {
     const componentRef = event.eventPayload.componentRef;
     const eventId = event.eventPayload && event.eventPayload.id;
+    if (app.eventHandlers[event.eventType]) {
+        app.eventHandlers[event.eventType].call(app, event.eventPayload);
+    }
     switch (event.eventType) {
         case 'componentGfppClicked':
             switch (eventId) {
                 case 'EDIT':
-                    _editorSDK.components.data.update('token', {componentRef: componentRef, data:{label: 'Click me baby one more time'}});
+                    self.sdk.components.data.update('token', {componentRef: componentRef, data:{label: 'Click me baby one more time'}});
                     break;
                 case 'MANAGE':
-                    _editorSDK.components.data.update('token', {componentRef: componentRef, data:{label: 'No time to explain, click me now'}});
+                    self.sdk.components.data.update('token', {componentRef: componentRef, data:{label: 'No time to explain, click me now'}});
                     break;
                 default:
                     break;
