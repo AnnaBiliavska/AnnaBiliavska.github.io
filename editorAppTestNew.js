@@ -24,7 +24,7 @@ const getInitDataStatus = initData => {
         }
     })
 
-    return status
+    console.log(status);
 }
 
 module.exports = initData => {
@@ -33,7 +33,7 @@ module.exports = initData => {
     return {
         editorReady: editorSDK => {
             return installApp(editorSDK);
-            console.log(getInitDataStatus(initData));
+            getInitDataStatus(initData);
         },
         getAppManifest: () => {
             return {
