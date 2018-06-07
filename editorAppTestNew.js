@@ -26,11 +26,11 @@ const getInitDataStatus = initData => {
 
 module.exports = initData => {
     console.log("start initialization");
+    getInitDataStatus(initData);
 
     return {
         editorReady: editorSDK => {
             return installApp(editorSDK);
-            getInitDataStatus(initData);
         },
         getAppManifest: () => {
             return {
