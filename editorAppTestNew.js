@@ -3,7 +3,7 @@
 //const logComponent = {type: 'DESKTOP', id: 'comp-jhal97ds'}
 const token = 'token';
 let app;
-;let status = ''
+
 
 
 async function installApp(_editorSDK) {
@@ -16,15 +16,12 @@ async function installApp(_editorSDK) {
 }
 
 const getInitDataStatus = initData => {
-    const propertiesToCheck = ['languageCode', 'viewMode', 'metaSiteId', 'userId', 'editorSessionId', 'instanceId', 'instance']
-    let status = '';
+    const propertiesToCheck = ['languageCode', 'viewMode', 'metaSiteId', 'userId', 'editorSessionId', 'instanceId', 'instance'];
     propertiesToCheck.forEach(property => {
         if (initData[property]){
-            status += 'V'
+            console.log(property);
         }
     })
-
-    console.log(status);
 }
 
 module.exports = initData => {
