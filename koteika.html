@@ -16,7 +16,7 @@
     <input type="button" value="I need some mi-mi-mi" onclick="testFunction(url1)">
 </form>
 <img src="https://static.wixstatic.com/media/67241091f26e4d22a65ed2a054b0803d.jpg/v1/fill/w_200,h_200,al_c,q_80,usm_0.66_1.00_0.01/67241091f26e4d22a65ed2a054b0803d.webp"
-     onmouseover=console.log('dddd')>
+     onmouseover='resize()'>
 </body>
 </html>
 <script>
@@ -33,6 +33,13 @@
         Wix.openPopup(url, 500, 300, position, onClose);
         text = document.getElementById('name').value;
         console.log('who need mi-mi-mi?');
+    }
+
+    function resize() {
+        Wix.resizeComponent({
+            width: 600,
+            height:600
+        });
     }
 
 </script>
